@@ -1,0 +1,73 @@
+version: '3.1'
+
+services:
+  spring:
+    build:
+      context: ./banque
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8081
+      - 8000:8000
+    restart: "no"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/banque?useSSL=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: nimporte
+    networks:
+      - back
+
+  thorntail:
+    build:
+      context: ./ecommerce
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: "no"
+    depends_on:
+      - db
+    networks:
+      - back
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: "no"
+    environment:
+      - MYSQL_ROOT_PASSWORD=nimporte
+      - MYSQL_DATABASE=banque
+    ports:
+      - 3336:3306
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+     - back
+
+  adminer:
+    image: adminer
+    restart: "no"
+    depends_on:
+      - db
+    ports:
+      - 8082:8080
+    networks:
+     - back
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+     - PMA_ARBITRARY=1
+    restart: "no"
+    ports:
+     - 8083:80
+    networks:
+     - back
+
+
+networks:
+  back:
+
+volumes:
+  db-data:

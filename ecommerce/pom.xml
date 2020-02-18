@@ -7,7 +7,6 @@
   <artifactId>ecommerce</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
-
   <name>Thorntail Example</name>
 
   <properties>
@@ -42,7 +41,6 @@
         <groupId>io.thorntail</groupId>
         <artifactId>thorntail-maven-plugin</artifactId>
         <version>${version.thorntail}</version>
-        
         <executions>
           <execution>
             <goals>
@@ -68,9 +66,18 @@
       <groupId>io.thorntail</groupId>
       <artifactId>jpa</artifactId>
     </dependency>
+      <dependency>
+        <groupId>io.thorntail</groupId>
+        <artifactId>datasources</artifactId>
+      </dependency>
     <dependency>
       <groupId>io.thorntail</groupId>
       <artifactId>hibernate</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.19</version>
     </dependency>
   </dependencies>
 </project>
