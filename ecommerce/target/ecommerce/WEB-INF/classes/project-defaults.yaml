@@ -1,0 +1,15 @@
+swarm:
+  http:
+    port: 8080
+  datasources:
+    jdbc-drivers:
+      com.mysql:
+        driver-class-name: com.mysql.jdbc.Driver
+        xa-datasource-class-name: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+        driver-module-name: com.mysql
+    data-sources:
+      EcommerceDS:
+        driver-name: com.mysql
+        connection-url: jdbc:mysql://db:3306/banque?useSSL=false
+        user-name: root
+        password: nimporte
