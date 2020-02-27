@@ -1,2 +1,6 @@
+fr/commerce/ecommerce/rest/Product.class
+fr/commerce/ecommerce/rest/User.class
+fr/commerce/ecommerce/rest/UserController.class
+fr/commerce/ecommerce/config/CORSFilter.class
+fr/commerce/ecommerce/rest/ProductsController.class
 fr/commerce/ecommerce/rest/RestApplication.class
-fr/commerce/ecommerce/rest/HelloWorldEndpoint.class

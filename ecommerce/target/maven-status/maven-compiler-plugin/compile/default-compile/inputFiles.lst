@@ -1,2 +1,6 @@
-/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/java/fr/commerce/ecommerce/rest/HelloWorldEndpoint.java
+/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/java/fr/commerce/ecommerce/config/CORSFilter.java
+/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/java/fr/commerce/ecommerce/rest/ProductsController.java
+/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/java/fr/commerce/ecommerce/rest/User.java
+/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/java/fr/commerce/ecommerce/rest/Product.java
 /Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/java/fr/commerce/ecommerce/rest/RestApplication.java
+/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/java/fr/commerce/ecommerce/rest/UserController.java

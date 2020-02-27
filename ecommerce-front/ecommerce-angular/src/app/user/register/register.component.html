@@ -1,0 +1,19 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+  <label>
+    Email
+    <input type="text" formControlName="email">
+  </label>
+
+  <label>
+    Password
+    <input type="text" formControlName="password">
+  </label>
+
+  <label>
+    Confirm password
+    <input type="text" formControlName="confirmPassword">
+  </label>
+
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>

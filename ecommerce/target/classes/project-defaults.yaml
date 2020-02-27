@@ -10,6 +10,6 @@ swarm:
     data-sources:
       EcommerceDS:
         driver-name: com.mysql
-        connection-url: jdbc:mysql://localhost:3336/mysql
+        connection-url: jdbc:mysql://db:3306/banque?useSSL=false
         user-name: root
         password: nimporte
