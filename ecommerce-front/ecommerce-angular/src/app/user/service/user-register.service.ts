@@ -12,6 +12,9 @@ export class UserRegisterService {
 
   constructor(private http: HttpClient) { }
 
+  public isAuthentified = false;
+  public user: User;
+
   public signin(user: UserSignin): Observable<User> {
     return this.http.post<User>('http://localhost:8080/user/connexion/', user);
   }

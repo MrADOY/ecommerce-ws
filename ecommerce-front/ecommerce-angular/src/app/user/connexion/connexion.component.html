@@ -9,7 +9,5 @@
     <input type="text" formControlName="password">
   </label>
 
-  <p *ngIf="user">Hello {{user?.email}}</p>
-
   <button type="submit" [disabled]="!profileForm.valid">Submit</button>
 </form>
