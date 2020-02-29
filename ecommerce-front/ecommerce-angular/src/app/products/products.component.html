@@ -1,1 +1,10 @@
-<p routerLink="/product/{{p.id}}" *ngFor="let p of products">{{p.id}} - {{p.name}}</p>
+<div style="display: flex; flex-wrap: wrap">
+<div *ngFor="let p of products" class="card" style="width: 18rem;">
+  <img src="{{p.urlPictures}}" class="card-img-top" alt="{{p.name}}">
+  <div class="card-body">
+    <h5 class="card-title">{{p.name}}</h5>
+    <p class="card-text">{{p.description}}</p>
+    <a routerLink="/product/{{p.id}}" class="btn btn-primary">Détail</a>
+  </div>
+</div>
+</div>
