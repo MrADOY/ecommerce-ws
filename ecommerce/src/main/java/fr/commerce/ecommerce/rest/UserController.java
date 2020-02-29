@@ -1,20 +1,22 @@
 package fr.commerce.ecommerce.rest;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
+import javax.transaction.*;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 @Path("user")
-@ApplicationScoped
 public class UserController {
 
     @PersistenceContext(unitName = "MyPU")
     EntityManager em;
+
+    @Resource
+    private UserTransaction transaction ;
 
     @POST
     @Path("connexion")
@@ -34,10 +36,10 @@ public class UserController {
     @POST
     @Path("inscription")
     @Produces("application/json")
-    public Response inscription(User utilisateur) {
-        em.getTransaction().begin();
-        em.persist(utilisateur);
-        em.getTransaction().commit();
+    public Response inscription(User utilisateur) throws Exception {
+        this.transaction.begin();
+        this.em.persist(utilisateur);
+        this.transaction.commit();
         return Response.ok().build();
     }
 }

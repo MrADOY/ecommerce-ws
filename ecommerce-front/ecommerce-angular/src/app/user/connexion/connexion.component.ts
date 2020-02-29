@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
-import {UserRegisterService} from "../service/user-register.service";
-import {UserSignup} from "../UserSignup";
-import {UserSignin} from "../UserSignin";
+import {FormBuilder, Validators} from '@angular/forms';
+import {UserRegisterService} from '../service/user-register.service';
+import {UserSignin} from '../UserSignin';
+import {User} from '../User';
 
 @Component({
   selector: 'app-connexion',
@@ -16,6 +16,7 @@ export class ConnexionComponent implements OnInit {
     password: ['', [Validators.required]]
   });
 
+  user: User;
   constructor(private fb: FormBuilder, private userRegisterService: UserRegisterService) { }
 
   ngOnInit() {
@@ -26,7 +27,8 @@ export class ConnexionComponent implements OnInit {
       email: this.profileForm.value.email,
       password: this.profileForm.value.password
     };
-    this.userRegisterService.signin(user).subscribe();;
+    this.userRegisterService.signin(user).subscribe((userResponse) => {
+      this.user = userResponse;
+    });
   }
-
 }

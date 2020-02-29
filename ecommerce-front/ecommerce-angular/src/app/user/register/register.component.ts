@@ -3,6 +3,7 @@ import {FormBuilder} from '@angular/forms';
 import { Validators } from '@angular/forms';
 import {UserRegisterService} from '../service/user-register.service';
 import {UserSignup} from '../UserSignup';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
