@@ -62,10 +62,14 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.jboss.xnio:xnio-nio:3.3.8.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.spec.javax.annotation:jboss-annotations-api_1.3_spec:2.0.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.thorntail:meta-spi:2.6.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.thorntail:jaxrs:2.6.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.thorntail:webservices:2.6.0.Final" level="project" />
     <orderEntry type="library" name="Maven: io.thorntail:logging:2.6.0.Final" level="project" />
     <orderEntry type="library" name="Maven: io.thorntail:security:2.6.0.Final" level="project" />
     <orderEntry type="library" name="Maven: io.thorntail:elytron:2.6.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.spec.javax.xml.ws:jboss-jaxws-api_2.3_spec:2.0.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: javax.jws:jsr181-api:1.0-MR1" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.spec.javax.xml.soap:jboss-saaj-api_1.4_spec:1.0.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.thorntail:jaxrs:2.6.0.Final" level="project" />
     <orderEntry type="library" name="Maven: io.thorntail:jaxrs-cdi:2.6.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm:7.1" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.1_spec:2.0.0.Final" level="project" />
