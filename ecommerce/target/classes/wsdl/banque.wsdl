@@ -1,0 +1,35 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://localhost:8080/BanqueService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost:8080/BanqueService" targetNamespace="http://localhost:8080/BanqueService">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://localhost:8080/BanqueService">
+            <xs:element name="refundCustomerRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="cardNumber" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="refundCustomerRequest">
+        <wsdl:part element="tns:refundCustomerRequest" name="refundCustomerRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="BanquePort">
+        <wsdl:operation name="refundCustomer">
+            <wsdl:input message="tns:refundCustomerRequest" name="refundCustomerRequest"> </wsdl:input>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="BanquePortSoap11" type="tns:BanquePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="refundCustomer">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="refundCustomerRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="BanquePortService">
+        <wsdl:port binding="tns:BanquePortSoap11" name="BanquePortSoap11">
+            <soap:address location="http://localhost:8081/ws"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

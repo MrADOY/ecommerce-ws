@@ -36,7 +36,45 @@
   <build>
     <finalName>${project.artifactId}</finalName>
 
+
     <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.9</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${basedir}/target/generated/src/main/java</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jaxws-maven-plugin</artifactId>
+        <version>1.12</version>
+        <configuration>
+          <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
+          <packageName>com.raps.code.generate.ws</packageName>
+          <keep>true</keep>
+          <sourceDestDir>${basedir}/target/generated/src/main/java</sourceDestDir>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>wsimport</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>io.thorntail</groupId>
         <artifactId>thorntail-maven-plugin</artifactId>
@@ -83,6 +121,12 @@
       <groupId>io.thorntail</groupId>
       <artifactId>cdi</artifactId>
     </dependency>
+    <!-- Java Architecture for XML Binding (JAXB), Java 11+ support -->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.2.11</version>
+    </dependency>
     <dependency>
       <groupId>io.thorntail</groupId>
       <artifactId>hibernate</artifactId>
@@ -92,5 +136,30 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.19</version>
     </dependency>
+    <!-- Java API for XML Web Services (JAX-WS), Java 11+ support -->
+    <dependency>
+      <groupId>javax.xml.ws</groupId>
+      <artifactId>jaxws-api</artifactId>
+      <version>2.2.11</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core -->
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-core</artifactId>
+      <version>2.2.11</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core -->
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>2.2.11</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core -->
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-xjc</artifactId>
+      <version>2.2.11</version>
+    </dependency>
+
   </dependencies>
 </project>

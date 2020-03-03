@@ -1,4 +1,4 @@
-INSERT INTO `Product`(`id`, `name`) VALUES (1, 'P1');
-INSERT INTO `Product`(`id`, `name`) VALUES (2, 'P1');
-INSERT INTO `Product`(`id`, `name`) VALUES (3, 'P1');
-INSERT INTO `Product`(`id`, `name`) VALUES (4, 'P1');
+INSERT INTO `Product`(`id`, `name`, `description`, `urlPictures`) VALUES (1, 'Téléphone', 'Vraiment un joli téléphone','https://wee-static.com/cache/5/product/580x580/0000/0030/308882-telephone-retro-746-terracotta-wild-wolf.jpg');
+INSERT INTO `Product`(`id`, `name`, `description`, `urlPictures`) VALUES (2, 'Voiture', 'Vraiment une jolie voiture','https://img-4.linternaute.com/9AvndEAhmrHTCjj5I4scY1nOmGo=/1240x/smart/a48cb0f6fa8641f68b8d4de5cd7ff6e8/ccmcms-linternaute/10654613.jpg');
+INSERT INTO `Product`(`id`, `name`, `description`, `urlPictures`) VALUES (3, 'Télévision', 'Vraiment une jolie télévision','https://www.picclickimg.com/d/l400/pict/173900924471_/Rare-Ancien-Poste-de-Television-DUCRETET-THOMSON-Vintage.jpg');
+INSERT INTO `Product`(`id`, `name`, `description`, `urlPictures`) VALUES (4, 'Lit', 'Vraiment un jolie lit','https://lesvieilleschoses.com/144751-large_default/lit-ancien.jpg');

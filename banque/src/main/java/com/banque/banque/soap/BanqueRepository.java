@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BanqueRepository {
 
-    public boolean findCountry(String cardNumber) {
+    public boolean refundCustomer(String cardNumber) {
         return true;
     }
 

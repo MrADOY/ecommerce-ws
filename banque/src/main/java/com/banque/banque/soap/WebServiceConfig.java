@@ -30,7 +30,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         wsdl11Definition.setPortTypeName("BanquePort");
         wsdl11Definition.setLocationUri("/ws");
         wsdl11Definition.setTargetNamespace("http://localhost:8080/BanqueService");
-       wsdl11Definition.setSchema(banqueSchema);
+        wsdl11Definition.setSchema(banqueSchema);
         return wsdl11Definition;
     }
 

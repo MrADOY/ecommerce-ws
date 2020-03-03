@@ -1,5 +1,7 @@
 package com.banque.banque.soap;
 
+import localhost._8080.banqueservice.RefundCustomerRequest;
+import localhost._8080.banqueservice.RefundCustomerResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -18,9 +20,11 @@ public class BanqueEndpoint {
         this.banqueRepository = banqueRepository;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "refundCustomer")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "refundCustomerRequest")
     @ResponsePayload
-    public boolean refundCustomer(@RequestPayload String cardNumber) {
-        return banqueRepository.findCountry(cardNumber);
+        public RefundCustomerResponse refundCustomer(@RequestPayload RefundCustomerRequest cardNumber) {
+        RefundCustomerResponse response = new RefundCustomerResponse();
+        response.setStatus(banqueRepository.refundCustomer(cardNumber.getCardNumber()));
+        return response;
     }
 }
