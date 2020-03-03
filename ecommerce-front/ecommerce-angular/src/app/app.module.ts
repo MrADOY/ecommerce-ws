@@ -13,6 +13,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConnexionComponent } from './user/connexion/connexion.component';
+import { NgxSoapModule } from 'ngx-soap';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ConnexionComponent } from './user/connexion/connexion.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSoapModule
   ],
   providers: [],
   bootstrap: [AppComponent]

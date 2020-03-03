@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSoapService, Client, ISoapMethodResponse } from 'ngx-soap';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import {OrderService} from './service/order.service';
 
 @Component({
   selector: 'app-order',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
-  constructor() { }
+  result: boolean;
 
-  ngOnInit() {
+  constructor(private orderService: OrderService) {
   }
 
+
+  ngOnInit(): void {
+
+  }
+
+  refundCustomer(id: string, amout: string): void {
+    this.orderService.refundCustommer(id, amout).subscribe(value => {
+      this.result = value;
+    });
+  }
 }

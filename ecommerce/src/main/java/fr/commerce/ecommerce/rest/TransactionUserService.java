@@ -12,7 +12,7 @@ import javax.jws.WebService;
  * @author Yoshimasa Tanabe
  *
  */
-@WebService(targetNamespace = "http://ecommerce.io/TransactionUserService")
+@WebService(targetNamespace = "http://localhost:8080/api/TransactionUserService")
 public interface TransactionUserService {
 
     /**
@@ -22,7 +22,7 @@ public interface TransactionUserService {
      * @return true if ok.
      */
     @WebMethod
-    public boolean refundCustomer(User user, double amount);
+    public boolean refundCustomer(UserInputSoap user);
 
     /**
      * Say hello to someone precisely
@@ -31,7 +31,7 @@ public interface TransactionUserService {
      * @return true if ok.
      */
     @WebMethod
-    public boolean debitCustomer(User user, double amount);
+    public boolean debitCustomer(UserInputSoap user);
 
 
 }

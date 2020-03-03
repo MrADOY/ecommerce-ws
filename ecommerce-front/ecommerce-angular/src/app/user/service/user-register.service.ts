@@ -16,10 +16,10 @@ export class UserRegisterService {
   public user: User;
 
   public signin(user: UserSignin): Observable<User> {
-    return this.http.post<User>('http://localhost:8080/user/connexion/', user);
+    return this.http.post<User>('http://localhost:8080/api/user/connexion/', user);
   }
 
   public singup(user: UserSignup): Observable<User> {
-    return this.http.post<User>('http://localhost:8080/user/inscription/', user);
+    return this.http.post<User>('http://localhost:8080/api/user/inscription/', user);
   }
 }
