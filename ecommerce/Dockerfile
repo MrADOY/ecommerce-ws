@@ -1,10 +1,10 @@
 #
 # Build stage
 #
-FROM maven:3.6.0-jdk-11-slim AS build
+FROM maven:3.6.0-jdk-8-slim AS build
 COPY src /home/app/src
 COPY pom.xml /home/app
-
+COPY src/main/resources/wsdl/banque.wsdl /home/app/src/main/resources/wsdl
 RUN mvn -f /home/app/pom.xml package
 
 #
@@ -12,6 +12,7 @@ RUN mvn -f /home/app/pom.xml package
 #
 FROM openjdk:8-jre-alpine
 COPY --from=build /home/app/target/ecommerce-thorntail.jar /usr/local/lib/ecommerce-thorntail.jar
+COPY --from=build /home/app/src/main/resources/wsdl/banque.wsdl /home/app/src/main/resources/wsdl/banque.wsdl
 
 ENV DOCKERIZE_VERSION v0.6.0
 RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \

@@ -1,17 +1,17 @@
 package com.banque.banque.soap;
 
-import localhost._8080.banqueservice.RefundCustomerRequest;
-import localhost._8080.banqueservice.RefundCustomerResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+import spring._8081.banqueservice.RefundCustomerRequest;
+import spring._8081.banqueservice.RefundCustomerResponse;
 
 @Endpoint
 public class BanqueEndpoint {
 
-    private static final String NAMESPACE_URI = "http://localhost:8080/BanqueService";
+    private static final String NAMESPACE_URI = "http://spring:8081/BanqueService";
 
     private BanqueRepository banqueRepository;
 

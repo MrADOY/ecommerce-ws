@@ -8,14 +8,25 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="refundCustomerResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="status" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:schema>
     </wsdl:types>
+    <wsdl:message name="refundCustomerResponse">
+        <wsdl:part element="tns:refundCustomerResponse" name="refundCustomerResponse"> </wsdl:part>
+    </wsdl:message>
     <wsdl:message name="refundCustomerRequest">
         <wsdl:part element="tns:refundCustomerRequest" name="refundCustomerRequest"> </wsdl:part>
     </wsdl:message>
     <wsdl:portType name="BanquePort">
         <wsdl:operation name="refundCustomer">
             <wsdl:input message="tns:refundCustomerRequest" name="refundCustomerRequest"> </wsdl:input>
+            <wsdl:output message="tns:refundCustomerResponse" name="refundCustomerResponse"> </wsdl:output>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="BanquePortSoap11" type="tns:BanquePort">
@@ -25,6 +36,9 @@
             <wsdl:input name="refundCustomerRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
+            <wsdl:output name="refundCustomerResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="BanquePortService">

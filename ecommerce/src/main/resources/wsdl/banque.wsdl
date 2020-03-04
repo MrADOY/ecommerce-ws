@@ -1,6 +1,6 @@
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://localhost:8080/BanqueService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost:8080/BanqueService" targetNamespace="http://localhost:8080/BanqueService">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://spring:8081/BanqueService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://spring:8081/BanqueService" targetNamespace="http://spring:8081/BanqueService">
     <wsdl:types>
-        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://localhost:8080/BanqueService">
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://spring:8081/BanqueService">
             <xs:element name="refundCustomerRequest">
                 <xs:complexType>
                     <xs:sequence>
@@ -17,11 +17,11 @@
             </xs:element>
         </xs:schema>
     </wsdl:types>
-    <wsdl:message name="refundCustomerResponse">
-        <wsdl:part element="tns:refundCustomerResponse" name="refundCustomerResponse"> </wsdl:part>
-    </wsdl:message>
     <wsdl:message name="refundCustomerRequest">
         <wsdl:part element="tns:refundCustomerRequest" name="refundCustomerRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="refundCustomerResponse">
+        <wsdl:part element="tns:refundCustomerResponse" name="refundCustomerResponse"> </wsdl:part>
     </wsdl:message>
     <wsdl:portType name="BanquePort">
         <wsdl:operation name="refundCustomer">
@@ -43,7 +43,7 @@
     </wsdl:binding>
     <wsdl:service name="BanquePortService">
         <wsdl:port binding="tns:BanquePortSoap11" name="BanquePortSoap11">
-            <soap:address location="http://localhost:8081/ws"/>
+            <soap:address location="http://spring:8081/ws"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

@@ -1,6 +1,23 @@
 version: '3.1'
 
 services:
+  spring:
+    build:
+      context: ./banque
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8081
+      - 8000:8000
+    restart: "no"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/banque?useSSL=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: nimporte
+    networks:
+      - back
+      
   thorntail:
     build:
       context: ./ecommerce
