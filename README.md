@@ -15,15 +15,13 @@ La base de donnée utilisée est MySQL. MySQL est une base de donnée qu'on ne p
 Architecture de notre application : 
 
 ```
-![architecture](./assets/architecture.png)
+![architecture](https://github.com/MrADOY/ecommerce-ws/blob/master/assets/architecture.png)
 ```
 
-[^https://thorntail.io/]: Thorntail Framework
-[^https://spring.io/projects/spring-boot]: Spring Boot.
-[^https://www.docker.com/]: Docker
-[^https://angular.io/]: Angular
-
-
+1. Thorntail https://thorntail.io/
+2. Spring boot https://spring.io/projects/spring-boot
+3. Angular https://angular.io/
+4. Docker https://www.docker.com/
 
 Pour développer les différents web-services nous avons utilisé le framework Jaxrs et Jaxws qui permettent de développer respectivement des web services REST et SOAP, on peut facilement les intégrer à notre projet à l'aide de maven
 
@@ -69,7 +67,31 @@ Notre projet dispose de deux applications différentes un site de e-commerce et 
 
 
 
+Lien du Github
+
+https://github.com/MrADOY/ecommerce-ws
 
 
 
+Déploiement de l'application 
+
+Pour démarrer l'application en local il suffit de se placer dans le dossier et lancer la commande 
+
+```bash
+docker-compose up --build
+```
+
+NB : Il peut y avoir un problème de création des bases de données lors du premier démarrage pour résoudre ceci il faut créer les bases de données manuellement (localhost:8082) user : root mot de passe : nimporte et créer les bases de données "e-commerce" et "banque" manuellement
+
+
+
+Pour tester les différents web-services vous avez les SOAPUi pour les services SOAP
+
+[ecommerce/src/main/resources/wsdl/banque-soapui-project.xml](https://github.com/MrADOY/ecommerce-ws/commit/5890364932a9e57e50e84097d7fec646fa915bea#diff-41e75a502fab9eb5429baf15d83c1b11)
+
+[ecommerce/src/main/resources/wsdl/userTransaction-soapui-project.xml](https://github.com/MrADOY/ecommerce-ws/commit/5890364932a9e57e50e84097d7fec646fa915bea#diff-efef8218920449aad5ce6568cf9f4ecc)
+
+Ainsi que les différents POSTMAN pour les services REST
+
+N/A
 
