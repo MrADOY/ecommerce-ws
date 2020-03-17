@@ -1,6 +1,18 @@
 version: '3.1'
 
 services:
+  angular-ecommerce:
+    build:
+      context: ./ecommerce-front/ecommerce-angular
+      dockerfile: Dockerfile
+    volumes: # Volume binding
+        - './ecommerce-front/ecommerce-angular:/usr/src/app' 
+    ports: 
+        - "4200:4200" # Port mapping
+    command: > 
+      bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
+    networks:
+      - back
   spring:
     build:
       context: ./banque
@@ -17,7 +29,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: nimporte
     networks:
       - back
-      
+
   thorntail:
     build:
       context: ./ecommerce
