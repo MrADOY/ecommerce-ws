@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="abe1d086-fc09-46c6-a053-02e245dc82a4" activeEnvironment="Default" name="banque" resourceRoot="" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="8af14760-5b57-41e0-b4df-1b85d307f1da" wsaVersion="NONE" name="BanquePortSoap11" type="wsdl" bindingName="{http://localhost:8080/BanqueService}BanquePortSoap11" soapVersion="1_1" anonymous="optional" definition="file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/resources/wsdl/banque.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/resources/wsdl/banque.wsdl"><con:part><con:url>file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/resources/wsdl/banque.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://localhost:8080/BanqueService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://localhost:8080/BanqueService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost:8080/BanqueService">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://localhost:8080/BanqueService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="refundCustomerRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cardNumber" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="refundCustomerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="refundCustomerResponse">
+    <wsdl:part element="tns:refundCustomerResponse" name="refundCustomerResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="refundCustomerRequest">
+    <wsdl:part element="tns:refundCustomerRequest" name="refundCustomerRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BanquePort">
+    <wsdl:operation name="refundCustomer">
+      <wsdl:input message="tns:refundCustomerRequest" name="refundCustomerRequest"></wsdl:input>
+      <wsdl:output message="tns:refundCustomerResponse" name="refundCustomerResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BanquePortSoap11" type="tns:BanquePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="refundCustomer">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="refundCustomerRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="refundCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BanquePortService">
+    <wsdl:port binding="tns:BanquePortSoap11" name="BanquePortSoap11">
+      <soap:address location="http://localhost:8081/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8081/ws</con:endpoint></con:endpoints><con:operation id="cdef6f95-e549-440b-bc30-dd00fa6d8423" isOneWay="false" action="" name="refundCustomer" bindingOperationName="refundCustomer" type="Request-Response" outputName="refundCustomerResponse" inputName="refundCustomerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7c93a62c-f9e0-4b65-940a-caf8718f5457" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ban="http://localhost:8080/BanqueService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ban:refundCustomerRequest>
+         <ban:cardNumber>test</ban:cardNumber>
+      </ban:refundCustomerRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://localhost:8080/BanqueService/BanquePort/refundCustomerRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

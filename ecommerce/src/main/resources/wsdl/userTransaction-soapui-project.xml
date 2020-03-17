@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="7b5e93ba-f903-4b55-aea7-5ad4195993fe" activeEnvironment="Default" name="userTransaction" resourceRoot="" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="001098b1-9f39-424e-bc75-0c4031b24ae8" wsaVersion="NONE" name="UserTransactionServiceSoapBinding" type="wsdl" bindingName="{http://localhost:8080/TransactionUserService}UserTransactionServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce-front/ecommerce-angular/src/assets/userTransaction.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce-front/ecommerce-angular/src/assets/userTransaction.wsdl"><con:part><con:url>file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce-front/ecommerce-angular/src/assets/userTransaction.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="UserTransactionService" targetNamespace="http://localhost:8080/TransactionUserService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://localhost:8080/TransactionUserService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://localhost:8080/TransactionUserService" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="debitCustomer" type="tns:debitCustomer"/>
+      <xs:element name="debitCustomerResponse" type="tns:debitCustomerResponse"/>
+      <xs:element name="refundCustomer" type="tns:refundCustomer"/>
+      <xs:element name="refundCustomerResponse" type="tns:refundCustomerResponse"/>
+      <xs:complexType name="debitCustomer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:userInputSoap"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="userInputSoap">
+        <xs:sequence>
+          <xs:element name="amount" type="xs:double"/>
+          <xs:element name="id" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="debitCustomerResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refundCustomer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:userInputSoap"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refundCustomerResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="refundCustomerResponse">
+    <wsdl:part element="tns:refundCustomerResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="refundCustomer">
+    <wsdl:part element="tns:refundCustomer" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="debitCustomerResponse">
+    <wsdl:part element="tns:debitCustomerResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="debitCustomer">
+    <wsdl:part element="tns:debitCustomer" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TransactionUserService">
+    <wsdl:operation name="debitCustomer">
+      <wsdl:input message="tns:debitCustomer" name="debitCustomer"></wsdl:input>
+      <wsdl:output message="tns:debitCustomerResponse" name="debitCustomerResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="refundCustomer">
+      <wsdl:input message="tns:refundCustomer" name="refundCustomer"></wsdl:input>
+      <wsdl:output message="tns:refundCustomerResponse" name="refundCustomerResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserTransactionServiceSoapBinding" type="tns:TransactionUserService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="debitCustomer">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="debitCustomer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="debitCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="refundCustomer">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="refundCustomer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="refundCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserTransactionService">
+    <wsdl:port binding="tns:UserTransactionServiceSoapBinding" name="UserTransaction">
+      <soap:address location="http://localhost:8080/UserTransactionService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/UserTransactionService</con:endpoint></con:endpoints><con:operation id="90a298f5-5843-4eeb-86c4-00a214d6218f" isOneWay="false" action="" name="debitCustomer" bindingOperationName="debitCustomer" type="Request-Response" outputName="debitCustomerResponse" inputName="debitCustomer" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="18da4f3b-f1a5-4978-9402-33172cea1dd4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/UserTransactionService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tran="http://localhost:8080/TransactionUserService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tran:debitCustomer>
+         <!--Optional:-->
+         <arg0>
+            <amount>?</amount>
+            <id>?</id>
+         </arg0>
+      </tran:debitCustomer>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://localhost:8080/TransactionUserService/TransactionUserService/debitCustomer"/></con:call></con:operation><con:operation id="1ed7c19a-7939-4e51-ad2b-967b5e284dd6" isOneWay="false" action="" name="refundCustomer" bindingOperationName="refundCustomer" type="Request-Response" outputName="refundCustomerResponse" inputName="refundCustomer" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6d49c426-b52d-4649-9e6d-9d63b4c18174" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/UserTransactionService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tran="http://localhost:8080/TransactionUserService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tran:refundCustomer>
+         <!--Optional:-->
+         <arg0>
+            <amount>10</amount>
+            <id>1</id>
+         </arg0>
+      </tran:refundCustomer>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://localhost:8080/TransactionUserService/TransactionUserService/refundCustomer"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
