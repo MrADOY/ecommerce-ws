@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <title>Enregistrement</title>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div th:if="${param.success}">
+                    <div class="alert alert-info">
+                        Vous êtes désormais enregistré sur la plateforme, vous vous connecter en cliquant <a href="/" th:href="@{/login}">ici</a></span>
+                    </div>
+                </div>
+                <h1 class="text-center">Enregistrement</h1>
+                <form th:action="@{/registration}" th:object="${user}" method="post">
+
+                    <p class="error-message"
+                       th:if="${#fields.hasGlobalErrors()}"
+                       th:each="error : ${#fields.errors('global')}"
+                       th:text="${error}">Erreur de validation</p>
+                    <div class="form-group"
+                         th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
+                        <label for="email" class="control-label">E-mail</label>
+                        <input id="email"
+                               class="form-control"
+                               th:field="*{email}"/>
+                        <p class="error-message"
+                           th:each="error : ${#fields.errors('email')}"
+                           th:text="${error}">Erreur de validation</p>
+                    </div>
+                    <div class="form-group"
+                         th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
+                        <label for="password" class="control-label">Mot de passe</label>
+                        <input id="password"
+                               class="form-control"
+                               type="password"
+                               th:field="*{password}"/>
+                        <p class="error-message"
+                           th:each="error : ${#fields.errors('password')}"
+                           th:text="${error}">Erreur de validation</p>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">S'enregistrer</button>
+                        <span>Déjà enregistré ? <a href="/" th:href="@{/login}">Connectez-vous ici</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
