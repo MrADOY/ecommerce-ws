@@ -14,9 +14,7 @@ La base de donnée utilisée est MySQL. MySQL est une base de donnée qu'on ne p
 
 Architecture de notre application : 
 
-```
 ![architecture](https://github.com/MrADOY/ecommerce-ws/blob/master/assets/architecture.png)
-```
 
 1. Thorntail https://thorntail.io/
 2. Spring boot https://spring.io/projects/spring-boot
