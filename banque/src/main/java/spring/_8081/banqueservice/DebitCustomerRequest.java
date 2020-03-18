@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2020.03.18 à 02:06:53 PM CET 
+// Généré le : 2020.03.18 à 03:05:59 PM CET 
 //
 
 
@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="cardNumber" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="amount" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,13 +37,15 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "cardNumber"
+    "cardNumber",
+    "amount"
 })
 @XmlRootElement(name = "debitCustomerRequest")
 public class DebitCustomerRequest {
 
     @XmlElement(required = true)
     protected String cardNumber;
+    protected double amount;
 
     /**
      * Obtient la valeur de la propriété cardNumber.
@@ -66,6 +69,22 @@ public class DebitCustomerRequest {
      */
     public void setCardNumber(String value) {
         this.cardNumber = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété amount.
+     * 
+     */
+    public double getAmount() {
+        return amount;
+    }
+
+    /**
+     * Définit la valeur de la propriété amount.
+     * 
+     */
+    public void setAmount(double value) {
+        this.amount = value;
     }
 
 }

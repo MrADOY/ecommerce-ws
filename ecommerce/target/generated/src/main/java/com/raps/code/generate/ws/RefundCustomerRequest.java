@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="cardNumber" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="amount" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,13 +30,15 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "cardNumber"
+    "cardNumber",
+    "amount"
 })
 @XmlRootElement(name = "refundCustomerRequest")
 public class RefundCustomerRequest {
 
     @XmlElement(required = true)
     protected String cardNumber;
+    protected double amount;
 
     /**
      * Obtient la valeur de la propriété cardNumber.
@@ -59,6 +62,22 @@ public class RefundCustomerRequest {
      */
     public void setCardNumber(String value) {
         this.cardNumber = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété amount.
+     * 
+     */
+    public double getAmount() {
+        return amount;
+    }
+
+    /**
+     * Définit la valeur de la propriété amount.
+     * 
+     */
+    public void setAmount(double value) {
+        this.amount = value;
     }
 
 }

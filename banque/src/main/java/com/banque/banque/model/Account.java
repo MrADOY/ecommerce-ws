@@ -22,7 +22,7 @@ public class Account {
     @OneToOne
     private User user;
 
-    @OneToMany(mappedBy="account")
+    @OneToMany(mappedBy="account", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Transaction> transactions;
 
 }

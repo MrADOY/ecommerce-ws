@@ -97,6 +97,18 @@ Pour tester les différents web-services vous avez les SOAPUi pour les services 
 
 [ecommerce/src/main/resources/wsdl/userTransaction-soapui-project.xml](https://github.com/MrADOY/ecommerce-ws/commit/5890364932a9e57e50e84097d7fec646fa915bea#diff-efef8218920449aad5ce6568cf9f4ecc)
 
+Le WSDL généré par spring-boot est disponible à cette adresse
+
+http://localhost:8081/ws/banque.wsdl
+
+
+
+Le WSDL généré par thorntail est disponible à cette adresse 
+
+http://localhost:8080/api/UserTransactionService?wsdl
+
+
+
 Ainsi que les différents POSTMAN pour les services REST
 
 N/A

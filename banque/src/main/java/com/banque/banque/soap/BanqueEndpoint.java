@@ -24,17 +24,17 @@ public class BanqueEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "refundCustomerRequest")
     @ResponsePayload
-        public RefundCustomerResponse refundCustomer(@RequestPayload RefundCustomerRequest cardNumber) {
+        public RefundCustomerResponse refundCustomer(@RequestPayload RefundCustomerRequest request) {
         RefundCustomerResponse response = new RefundCustomerResponse();
-        response.setStatus(banqueRepository.refundCustomer(cardNumber.getCardNumber()));
+        response.setStatus(banqueRepository.refundCustomer(request.getCardNumber(), request.getAmount()));
         return response;
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "debitCustomerRequest")
     @ResponsePayload
-    public DebitCustomerResponse refundCustomer(@RequestPayload DebitCustomerRequest cardNumber) {
+    public DebitCustomerResponse debitCustomer(@RequestPayload DebitCustomerRequest request) {
         DebitCustomerResponse response = new DebitCustomerResponse();
-        response.setStatus(banqueRepository.debitCustomer(cardNumber.getCardNumber()));
+        response.setStatus(banqueRepository.debitCustomer(request.getCardNumber(), request.getAmount()));
         return response;
     }
 }

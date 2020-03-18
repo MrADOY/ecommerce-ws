@@ -30,11 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RefundCustomerRequest }
+     * Create an instance of {@link DebitCustomerRequest }
      * 
      */
-    public RefundCustomerRequest createRefundCustomerRequest() {
-        return new RefundCustomerRequest();
+    public DebitCustomerRequest createDebitCustomerRequest() {
+        return new DebitCustomerRequest();
     }
 
     /**
@@ -43,6 +43,22 @@ public class ObjectFactory {
      */
     public RefundCustomerResponse createRefundCustomerResponse() {
         return new RefundCustomerResponse();
+    }
+
+    /**
+     * Create an instance of {@link RefundCustomerRequest }
+     * 
+     */
+    public RefundCustomerRequest createRefundCustomerRequest() {
+        return new RefundCustomerRequest();
+    }
+
+    /**
+     * Create an instance of {@link DebitCustomerResponse }
+     * 
+     */
+    public DebitCustomerResponse createDebitCustomerResponse() {
+        return new DebitCustomerResponse();
     }
 
 }

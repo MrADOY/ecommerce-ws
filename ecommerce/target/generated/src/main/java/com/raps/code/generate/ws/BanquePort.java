@@ -35,4 +35,16 @@ public interface BanquePort {
         @WebParam(name = "refundCustomerRequest", targetNamespace = "http://localhost:8080/BanqueService", partName = "refundCustomerRequest")
         RefundCustomerRequest refundCustomerRequest);
 
+    /**
+     * 
+     * @param debitCustomerRequest
+     * @return
+     *     returns com.raps.code.generate.ws.DebitCustomerResponse
+     */
+    @WebMethod
+    @WebResult(name = "debitCustomerResponse", targetNamespace = "http://localhost:8080/BanqueService", partName = "debitCustomerResponse")
+    public DebitCustomerResponse debitCustomer(
+        @WebParam(name = "debitCustomerRequest", targetNamespace = "http://localhost:8080/BanqueService", partName = "debitCustomerRequest")
+        DebitCustomerRequest debitCustomerRequest);
+
 }

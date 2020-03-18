@@ -1,10 +1,11 @@
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://localhost:8080/BanqueService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost:8080/BanqueService" targetNamespace="http://localhost:8080/BanqueService">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost:8080/BanqueService" targetNamespace="http://localhost:8080/BanqueService">
     <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://localhost:8080/BanqueService">
             <xs:element name="refundCustomerRequest">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="cardNumber" type="xs:string"/>
+                        <xs:element name="amount" type="xs:double"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -15,18 +16,43 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="debitCustomerRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="cardNumber" type="xs:string"/>
+                        <xs:element name="amount" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="debitCustomerResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="status" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:schema>
     </wsdl:types>
-    <wsdl:message name="refundCustomerResponse">
-        <wsdl:part element="tns:refundCustomerResponse" name="refundCustomerResponse"> </wsdl:part>
-    </wsdl:message>
     <wsdl:message name="refundCustomerRequest">
         <wsdl:part element="tns:refundCustomerRequest" name="refundCustomerRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="debitCustomerResponse">
+        <wsdl:part element="tns:debitCustomerResponse" name="debitCustomerResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="debitCustomerRequest">
+        <wsdl:part element="tns:debitCustomerRequest" name="debitCustomerRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="refundCustomerResponse">
+        <wsdl:part element="tns:refundCustomerResponse" name="refundCustomerResponse"> </wsdl:part>
     </wsdl:message>
     <wsdl:portType name="BanquePort">
         <wsdl:operation name="refundCustomer">
             <wsdl:input message="tns:refundCustomerRequest" name="refundCustomerRequest"> </wsdl:input>
             <wsdl:output message="tns:refundCustomerResponse" name="refundCustomerResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="debitCustomer">
+            <wsdl:input message="tns:debitCustomerRequest" name="debitCustomerRequest"> </wsdl:input>
+            <wsdl:output message="tns:debitCustomerResponse" name="debitCustomerResponse"> </wsdl:output>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="BanquePortSoap11" type="tns:BanquePort">
@@ -37,6 +63,15 @@
                 <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output name="refundCustomerResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="debitCustomer">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="debitCustomerRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="debitCustomerResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>

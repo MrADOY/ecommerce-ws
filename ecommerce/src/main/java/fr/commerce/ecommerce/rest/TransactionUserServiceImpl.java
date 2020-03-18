@@ -1,9 +1,6 @@
 package fr.commerce.ecommerce.rest;
 
-import com.raps.code.generate.ws.BanquePort;
-import com.raps.code.generate.ws.BanquePortService;
-import com.raps.code.generate.ws.RefundCustomerRequest;
-import com.raps.code.generate.ws.RefundCustomerResponse;
+import com.raps.code.generate.ws.*;
 
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
@@ -34,6 +31,7 @@ public class TransactionUserServiceImpl implements TransactionUserService {
         BanquePort banque = service.getBanquePortSoap11();
         RefundCustomerRequest request = new RefundCustomerRequest();
         request.setCardNumber(userDb.getBankCardNumber());
+        request.setAmount(user.getAmount());
         RefundCustomerResponse response = banque.refundCustomer(request);
 
         return response.isStatus();
@@ -45,7 +43,14 @@ public class TransactionUserServiceImpl implements TransactionUserService {
                 .setParameter("id", user.getId())
                 .getSingleResult();
 
-        // TODO CALL BANK WEB SERVICE;
-        return true;
+        // Appel soap au spring boot pour contacter la banque
+        BanquePortService service = new BanquePortService();
+        BanquePort banque = service.getBanquePortSoap11();
+        DebitCustomerRequest request = new DebitCustomerRequest();
+        request.setCardNumber(userDb.getBankCardNumber());
+        request.setAmount(user.getAmount());
+        DebitCustomerResponse response = banque.debitCustomer(request);
+
+        return response.isStatus();
     }
 }
