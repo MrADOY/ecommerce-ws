@@ -1,0 +1,11 @@
+<h1>Banque</h1>
+
+<p>Bonjour </p><p th:text="${user.email}"></p>
+
+<p>Votre compte </p><p th:text="${account.cardNumber}"></p>
+<p>Votre solde </p><p th:text="${account.balance}"></p>
+<p>Vos transactions : </p>
+<ul th:each="transac : ${transactions}">
+    <li><span th:text="${transac.id}"></span></li>
+    <li><span th:text="${transac.amount}"></span></li>
+</ul>

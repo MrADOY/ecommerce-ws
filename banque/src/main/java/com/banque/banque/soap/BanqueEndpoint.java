@@ -5,6 +5,8 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+import spring._8081.banqueservice.DebitCustomerRequest;
+import spring._8081.banqueservice.DebitCustomerResponse;
 import spring._8081.banqueservice.RefundCustomerRequest;
 import spring._8081.banqueservice.RefundCustomerResponse;
 
@@ -25,6 +27,14 @@ public class BanqueEndpoint {
         public RefundCustomerResponse refundCustomer(@RequestPayload RefundCustomerRequest cardNumber) {
         RefundCustomerResponse response = new RefundCustomerResponse();
         response.setStatus(banqueRepository.refundCustomer(cardNumber.getCardNumber()));
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "debitCustomerRequest")
+    @ResponsePayload
+    public DebitCustomerResponse refundCustomer(@RequestPayload DebitCustomerRequest cardNumber) {
+        DebitCustomerResponse response = new DebitCustomerResponse();
+        response.setStatus(banqueRepository.debitCustomer(cardNumber.getCardNumber()));
         return response;
     }
 }

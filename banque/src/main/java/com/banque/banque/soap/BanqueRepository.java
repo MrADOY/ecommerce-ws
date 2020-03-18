@@ -9,4 +9,8 @@ public class BanqueRepository {
         return true;
     }
 
+    public boolean debitCustomer(String cardNumber) {
+        return true;
+    }
+
 }

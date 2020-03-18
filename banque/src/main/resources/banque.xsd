@@ -18,4 +18,20 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="debitCustomerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cardNumber" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="debitCustomerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
 </xs:schema>

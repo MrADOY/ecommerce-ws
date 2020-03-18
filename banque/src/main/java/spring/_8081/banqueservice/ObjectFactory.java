@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2020.03.04 à 10:58:22 AM CET 
+// Généré le : 2020.03.18 à 02:06:53 PM CET 
 //
 
 
@@ -42,6 +42,22 @@ public class ObjectFactory {
      */
     public RefundCustomerRequest createRefundCustomerRequest() {
         return new RefundCustomerRequest();
+    }
+
+    /**
+     * Create an instance of {@link DebitCustomerResponse }
+     * 
+     */
+    public DebitCustomerResponse createDebitCustomerResponse() {
+        return new DebitCustomerResponse();
+    }
+
+    /**
+     * Create an instance of {@link DebitCustomerRequest }
+     * 
+     */
+    public DebitCustomerRequest createDebitCustomerRequest() {
+        return new DebitCustomerRequest();
     }
 
     /**

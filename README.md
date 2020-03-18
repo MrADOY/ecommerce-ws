@@ -65,6 +65,14 @@ Notre projet dispose de deux applications différentes un site de e-commerce et 
 
 
 
+Architecture base de données
+
+TODO
+
+Client possède un compte et un compte possède des transactions
+
+Le point d'entrée dans le système d'informations de la banque est le numéro de carte bleue ratachée au compte.
+
 Lien du Github
 
 https://github.com/MrADOY/ecommerce-ws
@@ -81,7 +89,7 @@ docker-compose up --build
 
 NB : Il peut y avoir un problème de création des bases de données lors du premier démarrage pour résoudre ceci il faut créer les bases de données manuellement (localhost:8082) user : root mot de passe : nimporte et créer les bases de données "e-commerce" et "banque" manuellement
 
-
+Attention également à utiliser une JDK 8 si vous lancez les projets directement sans passer par les dockers, en effet un bug est présent sur les JDK utilisant les modules pour la génération des clients SOAP.
 
 Pour tester les différents web-services vous avez les SOAPUi pour les services SOAP
 
@@ -92,4 +100,3 @@ Pour tester les différents web-services vous avez les SOAPUi pour les services 
 Ainsi que les différents POSTMAN pour les services REST
 
 N/A
-

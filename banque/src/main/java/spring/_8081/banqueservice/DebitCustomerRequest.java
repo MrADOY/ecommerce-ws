@@ -38,8 +38,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "cardNumber"
 })
-@XmlRootElement(name = "refundCustomerRequest")
-public class RefundCustomerRequest {
+@XmlRootElement(name = "debitCustomerRequest")
+public class DebitCustomerRequest {
 
     @XmlElement(required = true)
     protected String cardNumber;
