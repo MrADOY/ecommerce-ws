@@ -20,7 +20,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
-        servlet.setTransformWsdlLocations(true);
+        //servlet.setTransformWsdlLocations(true);
         return new ServletRegistrationBean(servlet, "/ws/*");
     }
 
@@ -28,7 +28,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema banqueSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("BanquePort");
-        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setLocationUri("http://spring:8081/ws");
         wsdl11Definition.setTargetNamespace("http://spring:8081/BanqueService");
         wsdl11Definition.setSchema(banqueSchema);
         return wsdl11Definition;

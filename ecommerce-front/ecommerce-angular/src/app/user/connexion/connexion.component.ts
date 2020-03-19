@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {UserRegisterService} from '../service/user-register.service';
 import {UserSignin} from '../UserSignin';
-import {User} from '../User';
+import {ConnexionUserResponseOdt} from '../ConnexionUserResponseOdt';
 import {Router} from "@angular/router";
 
 @Component({
@@ -11,6 +11,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
+
+  private showError: boolean;
 
   profileForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -34,6 +36,7 @@ export class ConnexionComponent implements OnInit {
       this.userRegister.user = userResponse;
       this.userRegister.isAuthentified = true;
       this.router.navigateByUrl('');
-    });
+    },
+      (error) => this.showError = true);
   }
 }

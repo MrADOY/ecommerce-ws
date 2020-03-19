@@ -1,3 +1,9 @@
 <button (click)="goBack()">go back</button>
 <h1>Product {{product?.name}}</h1>
-<button routerLink="/order">order</button>
+<img src="{{product?.urlPictures}}"  style="width : 128px; width : 72px" alt="{{product?.name}}">
+<p>{{product?.description}}</p>
+<p>Ce produit appartient a {{user?.name}} {{user?.firstname}}</p>
+<button (click)="order(userService.user.id, product?.ownerId, product?.price)">order</button>
+
+<p>Refund {{resultRefund}}</p>
+<p>Debit {{resultDebit}}</p>

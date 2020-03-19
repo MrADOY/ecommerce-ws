@@ -10,7 +10,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  public refundCustommer(id: string, amount: string): Observable<boolean> {
+  public refundCustommer(id: string, amount: number): Observable<boolean> {
 
     const inputRefund =  `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" ` +
       `xmlns:tran="http://localhost:8080/api/TransactionUserService">` +
@@ -24,6 +24,24 @@ export class OrderService {
         map((xmlString: string) => {
           const asJson = this.xmlStringToJson(xmlString);
           return asJson['soap:Envelope']['soap:Body']['ns2:refundCustomerResponse'].return['#text'];
+        })
+      );
+  }
+
+  public debitCustommer(id: string, amount: number): Observable<boolean> {
+
+    const inputDebit =  `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" ` +
+      `xmlns:tran="http://localhost:8080/api/TransactionUserService">` +
+      `<soapenv:Header/>` +
+      `<soapenv:Body>` +
+      `<tran:debitCustomer><arg0><amount>${amount}</amount><id>${id}</id></arg0></tran:debitCustomer></soapenv:Body>` +
+      `</soapenv:Envelope>`;
+
+    return this.http.post('http://localhost:8080/api/UserTransactionService', inputDebit, { responseType: 'text' })
+      .pipe(
+        map((xmlString: string) => {
+          const asJson = this.xmlStringToJson(xmlString);
+          return asJson['soap:Envelope']['soap:Body']['ns2:debitCustomerResponse'].return['#text'];
         })
       );
   }

@@ -8,7 +8,6 @@ import { HttpClientModule} from '@angular/common/http';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { OrderComponent } from './order/order.component';
 import { RegisterComponent } from './user/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -22,7 +21,6 @@ import { NgxSoapModule } from 'ngx-soap';
     ProductDetailComponent,
     HeaderComponent,
     FooterComponent,
-    OrderComponent,
     RegisterComponent,
     ConnexionComponent
   ],

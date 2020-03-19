@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="abe1d086-fc09-46c6-a053-02e245dc82a4" activeEnvironment="Default" name="banque" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="8af14760-5b57-41e0-b4df-1b85d307f1da" wsaVersion="NONE" name="BanquePortSoap11" type="wsdl" bindingName="{http://localhost:8080/BanqueService}BanquePortSoap11" soapVersion="1_1" anonymous="optional" definition="file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/resources/wsdl/banque.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/resources/wsdl/banque.wsdl"><con:part><con:url>file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/resources/wsdl/banque.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://localhost:8080/BanqueService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://localhost:8080/BanqueService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost:8080/BanqueService">
+<con:soapui-project id="95ed8549-8ae8-4579-88d0-83853c092f1b" activeEnvironment="Default" name="banque" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="3f3a7a02-ea8c-4e8f-903d-d8e39508ac0c" wsaVersion="NONE" name="BanquePortSoap11" type="wsdl" bindingName="{http://spring:8081/BanqueService}BanquePortSoap11" soapVersion="1_1" anonymous="optional" definition="file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/resources/wsdl/banque.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/resources/wsdl/banque.wsdl"><con:part><con:url>file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/resources/wsdl/banque.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://spring:8081/BanqueService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://spring:8081/BanqueService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://spring:8081/BanqueService">
   <wsdl:types>
-    <xs:schema elementFormDefault="qualified" targetNamespace="http://localhost:8080/BanqueService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://spring:8081/BanqueService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:element name="refundCustomerRequest">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="cardNumber" type="xs:string"/>
+            <xs:element name="amount" type="xs:double"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -16,18 +17,43 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="debitCustomerRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cardNumber" type="xs:string"/>
+            <xs:element name="amount" type="xs:double"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="debitCustomerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name="refundCustomerResponse">
-    <wsdl:part element="tns:refundCustomerResponse" name="refundCustomerResponse"></wsdl:part>
-  </wsdl:message>
   <wsdl:message name="refundCustomerRequest">
     <wsdl:part element="tns:refundCustomerRequest" name="refundCustomerRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="debitCustomerResponse">
+    <wsdl:part element="tns:debitCustomerResponse" name="debitCustomerResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="debitCustomerRequest">
+    <wsdl:part element="tns:debitCustomerRequest" name="debitCustomerRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="refundCustomerResponse">
+    <wsdl:part element="tns:refundCustomerResponse" name="refundCustomerResponse"></wsdl:part>
   </wsdl:message>
   <wsdl:portType name="BanquePort">
     <wsdl:operation name="refundCustomer">
       <wsdl:input message="tns:refundCustomerRequest" name="refundCustomerRequest"></wsdl:input>
       <wsdl:output message="tns:refundCustomerResponse" name="refundCustomerResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="debitCustomer">
+      <wsdl:input message="tns:debitCustomerRequest" name="debitCustomerRequest"></wsdl:input>
+      <wsdl:output message="tns:debitCustomerResponse" name="debitCustomerResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BanquePortSoap11" type="tns:BanquePort">
@@ -41,17 +67,35 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="debitCustomer">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="debitCustomerRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="debitCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="BanquePortService">
     <wsdl:port binding="tns:BanquePortSoap11" name="BanquePortSoap11">
       <soap:address location="http://localhost:8081/ws"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8081/ws</con:endpoint></con:endpoints><con:operation id="cdef6f95-e549-440b-bc30-dd00fa6d8423" isOneWay="false" action="" name="refundCustomer" bindingOperationName="refundCustomer" type="Request-Response" outputName="refundCustomerResponse" inputName="refundCustomerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7c93a62c-f9e0-4b65-940a-caf8718f5457" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ban="http://localhost:8080/BanqueService">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8081/ws</con:endpoint></con:endpoints><con:operation id="338b8792-7acb-4170-8c5d-e10789f7dab1" isOneWay="false" action="" name="debitCustomer" bindingOperationName="debitCustomer" type="Request-Response" outputName="debitCustomerResponse" inputName="debitCustomerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1dceecc1-4a72-4c55-a24d-e5825b9e3ef1" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ban="http://spring:8081/BanqueService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ban:debitCustomerRequest>
+         <ban:cardNumber>1111-2222-3333-4444</ban:cardNumber>
+         <ban:amount>444</ban:amount>
+      </ban:debitCustomerRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://spring:8081/BanqueService/BanquePort/debitCustomerRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="d0bc79b3-2eaf-4372-8ede-f7dff87e61d3" isOneWay="false" action="" name="refundCustomer" bindingOperationName="refundCustomer" type="Request-Response" outputName="refundCustomerResponse" inputName="refundCustomerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c6acf475-210b-4548-be7e-ad3a69d14d83" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/BanqueService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ban="http://spring:8081/BanqueService">
    <soapenv:Header/>
    <soapenv:Body>
       <ban:refundCustomerRequest>
-         <ban:cardNumber>test</ban:cardNumber>
+         <ban:cardNumber>1111-2222-3333-4444</ban:cardNumber>
+         <ban:amount>20</ban:amount>
       </ban:refundCustomerRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://localhost:8080/BanqueService/BanquePort/refundCustomerRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://spring:8081/BanqueService/BanquePort/refundCustomerRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

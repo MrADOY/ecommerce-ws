@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "BanquePortService", targetNamespace = "http://localhost:8080/BanqueService", wsdlLocation = "file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/resources/wsdl/banque.wsdl")
+@WebServiceClient(name = "BanquePortService", targetNamespace = "http://spring:8081/BanqueService", wsdlLocation = "file:/Users/aurelienpietrzak/Documents/Projets/ecommerce-ws/ecommerce/src/main/resources/wsdl/banque.wsdl")
 public class BanquePortService
     extends Service
 {
@@ -43,7 +43,7 @@ public class BanquePortService
     }
 
     public BanquePortService() {
-        super(BANQUEPORTSERVICE_WSDL_LOCATION, new QName("http://localhost:8080/BanqueService", "BanquePortService"));
+        super(BANQUEPORTSERVICE_WSDL_LOCATION, new QName("http://spring:8081/BanqueService", "BanquePortService"));
     }
 
     /**
@@ -53,7 +53,7 @@ public class BanquePortService
      */
     @WebEndpoint(name = "BanquePortSoap11")
     public BanquePort getBanquePortSoap11() {
-        return super.getPort(new QName("http://localhost:8080/BanqueService", "BanquePortSoap11"), BanquePort.class);
+        return super.getPort(new QName("http://spring:8081/BanqueService", "BanquePortSoap11"), BanquePort.class);
     }
 
     /**
@@ -65,7 +65,7 @@ public class BanquePortService
      */
     @WebEndpoint(name = "BanquePortSoap11")
     public BanquePort getBanquePortSoap11(WebServiceFeature... features) {
-        return super.getPort(new QName("http://localhost:8080/BanqueService", "BanquePortSoap11"), BanquePort.class, features);
+        return super.getPort(new QName("http://spring:8081/BanqueService", "BanquePortSoap11"), BanquePort.class, features);
     }
 
 }

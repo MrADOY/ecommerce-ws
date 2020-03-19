@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  * Generated source version: 2.1
  * 
  */
-@WebService(name = "BanquePort", targetNamespace = "http://localhost:8080/BanqueService")
+@WebService(name = "BanquePort", targetNamespace = "http://spring:8081/BanqueService")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @XmlSeeAlso({
     ObjectFactory.class
@@ -30,9 +30,9 @@ public interface BanquePort {
      *     returns com.raps.code.generate.ws.RefundCustomerResponse
      */
     @WebMethod
-    @WebResult(name = "refundCustomerResponse", targetNamespace = "http://localhost:8080/BanqueService", partName = "refundCustomerResponse")
+    @WebResult(name = "refundCustomerResponse", targetNamespace = "http://spring:8081/BanqueService", partName = "refundCustomerResponse")
     public RefundCustomerResponse refundCustomer(
-        @WebParam(name = "refundCustomerRequest", targetNamespace = "http://localhost:8080/BanqueService", partName = "refundCustomerRequest")
+        @WebParam(name = "refundCustomerRequest", targetNamespace = "http://spring:8081/BanqueService", partName = "refundCustomerRequest")
         RefundCustomerRequest refundCustomerRequest);
 
     /**
@@ -42,9 +42,9 @@ public interface BanquePort {
      *     returns com.raps.code.generate.ws.DebitCustomerResponse
      */
     @WebMethod
-    @WebResult(name = "debitCustomerResponse", targetNamespace = "http://localhost:8080/BanqueService", partName = "debitCustomerResponse")
+    @WebResult(name = "debitCustomerResponse", targetNamespace = "http://spring:8081/BanqueService", partName = "debitCustomerResponse")
     public DebitCustomerResponse debitCustomer(
-        @WebParam(name = "debitCustomerRequest", targetNamespace = "http://localhost:8080/BanqueService", partName = "debitCustomerRequest")
+        @WebParam(name = "debitCustomerRequest", targetNamespace = "http://spring:8081/BanqueService", partName = "debitCustomerRequest")
         DebitCustomerRequest debitCustomerRequest);
 
 }

@@ -4,7 +4,6 @@ import com.banque.banque.model.Account;
 import com.banque.banque.model.Transaction;
 import com.banque.banque.repository.AccountRepository;
 import com.banque.banque.repository.TransactionsRepository;
-import com.banque.banque.soap.BanqueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

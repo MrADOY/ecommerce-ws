@@ -9,4 +9,7 @@
     <input type="password" class="form-control" formControlName="password">
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Submit</button>
+  <div *ngIf="showError" class="alert alert-danger" role="alert">
+    Error during authentication
+  </div>
 </form>
