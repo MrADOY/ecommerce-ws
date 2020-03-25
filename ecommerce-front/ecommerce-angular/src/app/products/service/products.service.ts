@@ -17,4 +17,7 @@ export class ProductsService {
   public getProduct(id: number): Observable<Product> {
     return this.http.get<Product>(`http://localhost:8080/api/products/${id}`);
   }
+  public getProductNoAvailable(id: string): Observable<Product> {
+    return this.http.get<Product>(`http://localhost:8080/api/products/${id}/buy`);
+  }
 }

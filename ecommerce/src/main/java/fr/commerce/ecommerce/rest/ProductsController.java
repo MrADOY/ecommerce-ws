@@ -27,7 +27,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 @Path("/products")
-@Transactional
 public class ProductsController {
 
     @PersistenceContext(unitName = "MyPU")
@@ -46,8 +45,20 @@ public class ProductsController {
     @GET
     @Path("{id}")
     @Produces("application/json")
-    public Response getUserById(@PathParam("id") int id) {
+    public Response getProductsById(@PathParam("id") int id) {
         Product product = getProductWithId(id);
+        return Response.ok(product).build();
+    }
+
+    @GET
+    @Path("{id}/buy")
+    @Produces("application/json")
+    public Response productNotAvailable(@PathParam("id") int id) throws Exception{
+        this.transaction.begin();
+        Product product = getProductWithId(id);
+        product.setAvailable(false);
+        this.em.persist(product);
+        this.transaction.commit();
         return Response.ok(product).build();
     }
 

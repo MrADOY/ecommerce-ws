@@ -24,6 +24,10 @@ export class UserRegisterService {
     return this.http.post<ConnexionUserResponseOdt>('http://localhost:8080/api/user/register/', user);
   }
 
+  public signout(): void {
+    this.isAuthentified = false;
+  }
+
   public getUserDetail(id: string): Observable<User> {
     return this.http.get<User>('http://localhost:8080/api/user/' + id);
   }

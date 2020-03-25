@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {UserRegisterService} from '../user/service/user-register.service';
 
 @Component({
@@ -12,5 +12,4 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -1,9 +1,18 @@
-<button (click)="goBack()">go back</button>
-<h1>Product {{product?.name}}</h1>
-<img src="{{product?.urlPictures}}"  style="width : 128px; width : 72px" alt="{{product?.name}}">
-<p>{{product?.description}}</p>
-<p>Ce produit appartient a {{user?.name}} {{user?.firstname}}</p>
-<button (click)="order(userService.user.id, product?.ownerId, product?.price)">order</button>
-
-<p>Refund {{resultRefund}}</p>
-<p>Debit {{resultDebit}}</p>
+<div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+  <div class="my-3 p-3">
+    <h2 class="display-5">{{product?.name}}</h2>
+    <p class="lead">{{product?.description}}</p>
+  </div>
+  <div class="bg-dark shadow-sm mx-auto" style="border-radius: 21px 21px 21px 21px;">
+    <img src="{{product?.urlPictures}}"alt="{{product?.name}}">
+  </div>
+  <p class="lead">Ce produit appartient à {{user?.name}} {{user?.firstname}}</p>
+  <button *ngIf="showButton" class="alert alert-success" (click)="order(userService.user.id, product?.ownerId, product?.price, product?.id)">Order</button>
+  <div *ngIf="showSpinner" class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <svg *ngIf="showSuccess" class="bi bi-check-circle" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3-3a.5.5 0 11.708-.708L8 9.293l6.646-6.647a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+    <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1013.5 8a.5.5 0 011 0 6.5 6.5 0 11-3.25-5.63.5.5 0 11-.5.865A5.472 5.472 0 008 2.5z" clip-rule="evenodd"></path>
+  </svg>
+</div>
