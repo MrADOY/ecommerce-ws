@@ -1,15 +1,16 @@
+<div class="container">
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label >Email address</label>
+    <label >Email</label>
     <input type="email" class="form-control" aria-describedby="emailHelp" formControlName="email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
-    <label >Password</label>
+    <label >Mot de passe</label>
     <input type="password" class="form-control" formControlName="password">
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Je me connecte</button>
   <div *ngIf="showError" class="alert alert-danger" role="alert">
-    Error during authentication
+    Erreur lors de l'identification. Votre mot de passe est peut-être erroné
   </div>
 </form>
+</div>
