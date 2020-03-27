@@ -5,14 +5,17 @@
 .disconnect {
   width: 35px;
   height: 35px;
-  border: 1px solid #dc3545;
+  border: 2px solid #dc3545;
   border-radius: 3pc;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 300ms ease;
+  background-color: transparent;
 }
 
 .disconnect:hover {
   transform: scale(1.2) rotate(360deg);
+  border-color: transparent;
+  background-color: white;
 }
