@@ -48,7 +48,7 @@ public class TransactionUserServiceImpl implements TransactionUserService {
         BanquePort banque = service.getBanquePortSoap11();
         DebitCustomerRequest request = new DebitCustomerRequest();
         request.setCardNumber(userDb.getBankCardNumber());
-        request.setAmount(user.getAmount());
+        request.setAmount(-user.getAmount());
         DebitCustomerResponse response = banque.debitCustomer(request);
 
         return response.isStatus();
