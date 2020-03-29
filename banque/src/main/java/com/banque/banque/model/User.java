@@ -32,4 +32,12 @@ public class User implements Serializable {
     private Collection<Role> roles;
     @OneToOne
     private Account account;
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
 }

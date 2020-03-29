@@ -44,16 +44,6 @@
                            th:each="error : ${#fields.errors('password')}"
                            th:text="${error}">Erreur de validation</p>
                     </div>
-                    <div class="form-group"
-                         th:classappend="${#fields.hasErrors('bankCardNumber')}? 'has-error':''">
-                        <label for="bankCardNumber" class="control-label">Numéro de carte de crédit</label>
-                        <input id="bankCardNumber"
-                               class="form-control"
-                               th:field="*{bankCardNumber}"/>
-                        <p class="error-message"
-                           th:each="error : ${#fields.errors('bankCardNumber')}"
-                           th:text="${error}">Erreur de validation</p>
-                    </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-success">S'enregistrer</button>
                         <span>Déjà enregistré ? <a href="/" th:href="@{/login}">Connectez-vous ici</a></span>
