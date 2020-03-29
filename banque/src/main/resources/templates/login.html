@@ -1,13 +1,15 @@
 <!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
 <head>
     <title>Connection</title>
 </head>
 <body>
-<section>
-    <div class="main_content header-filter" >
-        <div class="container header-filter">
+<section layout:fragment="body" style="height: calc(100% + 4rem);">
+    <div class="main_content header-filter" style="background: linear-gradient(135deg, #9a9a9a, #dfdfdf); height: 100%; background-position: center; background-size: cover; background-repeat: no-repeat; margin-top: -1rem; padding-top: 3rem;" >
+        <div class="container header-filter" style="padding: 2rem;border-radius: 30px;overflow: hidden;">
             <div class="row">
-                <div class="col-md-12" style="z-index: 2;">
+                <div class="col-md-12" style="z-index: 2;" sec:authorize="!isAuthenticated()">
                     <h1 class="text-center text-white">Connectez-vous</h1>
                     <form th:action="@{/login}" method="post">
                         <div th:if="${param.error}">
@@ -62,6 +64,12 @@
                             </div>
                         </div>
                     </form>
+                </div>
+                <div class="col-md-12" style="z-index: 2;" sec:authorize="isAuthenticated()">
+                    <h1 class="text-center text-white">Connectez-vous</h1>
+                    <div class="alert alert-success">
+                        Vous êtes connecté, vous pouvez-naviguer en utilisant le menu.
+                    </div>
                 </div>
             </div>
         </div>
