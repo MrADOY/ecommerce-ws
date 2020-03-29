@@ -1,11 +1,37 @@
-<h1>Banque</h1>
-
-<p>Bonjour </p><p th:text="${user.email}"></p>
-
-<p>Votre compte </p><p th:text="${account.cardNumber}"></p>
-<p>Votre solde </p><p th:text="${account.balance}"></p>
-<p>Vos transactions : </p>
-<ul th:each="transac : ${transactions}">
-    <li><span th:text="${transac.id}"></span></li>
-    <li><span th:text="${transac.amount}"></span></li>
-</ul>
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
+<head>
+    <title>Mon compte</title>
+</head>
+<body>
+<section layout:fragment="body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" th:if="${account}">
+                <div class="card">
+                    <div class="card-header card-header-text card-header-warning">
+                        <div class="card-text">
+                            <h4 class="card-title" th:text="${'N° de carte bancaire : ' + account.cardNumber}"></h4>
+                            <p class="card-category" th:text="${'Solde actuel : ' + account.balance + ' €'}"></p>
+                        </div>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                            <tr><th>N° de transaction</th>
+                                <th>Montant</th>
+                            </tr></thead>
+                            <tbody>
+                            <tr th:each="transac : ${transactions}">
+                                <td th:text="${transac.id}"></td>
+                                <td th:text="${transac.amount + ' €'}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
