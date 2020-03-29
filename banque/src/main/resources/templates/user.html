@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
+<head>
+    <title>Votre compte</title>
+</head>
+<body>
+<section layout:fragment="body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Votre compte</h1>
+                <div class="card card-profile ml-auto mr-auto" style="max-width: 600px">
+                    <div class="card-header card-header-image">
+                        <a href="">
+                            <img class="img" src="https://images.unsplash.com/photo-1492447273231-0f8fecec1e3a?auto=format&fit=crop&h=800&w=800&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title" th:text="${user.email}"></h4>
+                        <h5 class="card-category text-gray" th:text="${user.account.cardNumber}"></h5>
+                    </div>
+                    <div class="card-footer justify-content-center">
+                        <a th:href="@{/logout}" class="btn btn-info btn-fab btn-fab-mini btn-round">
+                            <i class="material-icons">close</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

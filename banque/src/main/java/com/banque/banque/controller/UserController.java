@@ -2,7 +2,6 @@ package com.banque.banque.controller;
 
 import com.banque.banque.config.UserPrincipal;
 import com.banque.banque.model.User;
-import com.banque.banque.model.Account;
 import com.banque.banque.service.UserService;
 import com.banque.banque.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,14 +38,9 @@ public class UserController {
                                       BindingResult result){
 
         User existing = userService.findByEmail(userDto.getEmail());
-        Account existingAccount = accountService.findByCardNumber(userDto.getBankCardNumber());
 
         if (existing != null){
             result.rejectValue("email", null, "Cet e-amil est déjà utilisé.");
-        }
-
-        if (existingAccount != null){
-            result.rejectValue("bankCardNumber", null, "Ce numéro de carte n'est pas attribué.");
         }
 
         if (result.hasErrors()){
@@ -67,34 +61,34 @@ public class UserController {
         return "user";
     }
 
-    @GetMapping("/user/edit")
-    public String userEdit(Model model) {
-
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User utilisateur = userService.findById(((UserPrincipal)principal).getId());
-        model.addAttribute("user", utilisateur);
-        return "user_form";
-    }
-
-    @PostMapping("/user/update")
-    public String updateUserAccount(@ModelAttribute("user") @Valid User userDto, BindingResult result){
-
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String email = ((UserPrincipal)principal).getUsername();
-        Boolean existing = false;
-        User user = userService.findByEmail(userDto.getEmail());
-        if (user.getId() != ((UserPrincipal)principal).getId()) {
-            existing = true;
-        }
-        if (existing == true){
-            result.rejectValue("email", null, "There is already an account registered with that email");
-        }
-
-        if (result.hasErrors()){
-            return "user_form";
-        }
-
-        userService.update(email, userDto);
-        return "redirect:/user";
-    }
+//    @GetMapping("/user/edit")
+//    public String userEdit(Model model) {
+//
+//        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User utilisateur = userService.findById(((UserPrincipal)principal).getId());
+//        model.addAttribute("user", utilisateur);
+//        return "user_form";
+//    }
+//
+//    @PostMapping("/user/update")
+//    public String updateUserAccount(@ModelAttribute("user") @Valid User userDto, BindingResult result){
+//
+//        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        String email = ((UserPrincipal)principal).getUsername();
+//        Boolean existing = false;
+//        User user = userService.findByEmail(userDto.getEmail());
+//        if (user.getId() != ((UserPrincipal)principal).getId()) {
+//            existing = true;
+//        }
+//        if (existing == true){
+//            result.rejectValue("email", null, "Un compte avec ce mail existe déjà.");
+//        }
+//
+//        if (result.hasErrors()){
+//            return "user_form";
+//        }
+//
+//        userService.update(email, userDto);
+//        return "redirect:/user";
+//    }
 }
