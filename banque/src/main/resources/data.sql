@@ -1,8 +1,8 @@
 INSERT INTO `user_bank` (`id`, `email`,  `password`, `account_id`) VALUES
-(1,	'1@test.fr', '$2a$10$dEDwmfzBAKkmpkaTLRBy1ef5QwLNg3ujkkH5LKLhEXbuA4myzW0Zu', null),
-(2,	'2@test.fr', '$2a$10$dEDwmfzBAKkmpkaTLRBy1ef5QwLNg3ujkkH5LKLhEXbuA4myzW0Zu', null),
-(3,	'3@test.fr', '$2a$10$dEDwmfzBAKkmpkaTLRBy1ef5QwLNg3ujkkH5LKLhEXbuA4myzW0Zu', null),
-(4,	'4@test.fr', '$2a$10$dEDwmfzBAKkmpkaTLRBy1ef5QwLNg3ujkkH5LKLhEXbuA4myzW0Zu', null);
+(1,	'1@test.com', '$2a$10$ISB3/qQmucSyFbt8KBHO8.lE76qfJ9QCC0aB5Jyorpd2WVaMByxEa', null),
+(2,	'2@test.com', '$2a$10$ISB3/qQmucSyFbt8KBHO8.lE76qfJ9QCC0aB5Jyorpd2WVaMByxEa', null),
+(3,	'3@test.com', '$2a$10$ISB3/qQmucSyFbt8KBHO8.lE76qfJ9QCC0aB5Jyorpd2WVaMByxEa', null),
+(4,	'4@test.com', '$2a$10$ISB3/qQmucSyFbt8KBHO8.lE76qfJ9QCC0aB5Jyorpd2WVaMByxEa', null);
 
 INSERT INTO `account` (`id`, `balance`, `card_number`, `user_id`) VALUES
 (1,	2353.42, '1111-2222-3333-4444',	1),
