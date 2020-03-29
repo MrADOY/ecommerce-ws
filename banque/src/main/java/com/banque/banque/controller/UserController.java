@@ -2,7 +2,9 @@ package com.banque.banque.controller;
 
 import com.banque.banque.config.UserPrincipal;
 import com.banque.banque.model.User;
+import com.banque.banque.model.Account;
 import com.banque.banque.service.UserService;
+import com.banque.banque.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AccountService accountService;
+
     @ModelAttribute("user")
     public User userRegistrationDto() {
         return new User();
@@ -34,8 +39,14 @@ public class UserController {
                                       BindingResult result){
 
         User existing = userService.findByEmail(userDto.getEmail());
+        Account existingAccount = accountService.findByCardNumber(userDto.getBankCardNumber());
+
         if (existing != null){
-            result.rejectValue("email", null, "There is already an account registered with that email");
+            result.rejectValue("email", null, "Cet e-amil est déjà utilisé.");
+        }
+
+        if (existingAccount != null){
+            result.rejectValue("bankCardNumber", null, "Ce numéro de carte n'est pas attribué.");
         }
 
         if (result.hasErrors()){

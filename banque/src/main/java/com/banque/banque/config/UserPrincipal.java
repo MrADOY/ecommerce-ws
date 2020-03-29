@@ -14,6 +14,8 @@ public class UserPrincipal implements UserDetails {
     private String lastName;
     private String email;
     private String password;
+    private String bankCardNumber;
+
 
     public UserPrincipal(int id, String email, String password) {
         this.id = id;
@@ -85,6 +87,14 @@ public class UserPrincipal implements UserDetails {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getBankCardNumber() {
+        return bankCardNumber;
+    }
+
+    public void setBankCardNumber(String bankCardNumber) {
+        this.bankCardNumber = bankCardNumber;
     }
 
     public void setPassword(String password) {

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
 <head>
     <title>Enregistrement</title>
 </head>
 <body>
-<section>
+<section layout:fragment="body">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -12,6 +14,7 @@
                         Vous êtes désormais enregistré sur la plateforme, vous vous connecter en cliquant <a href="/" th:href="@{/login}">ici</a></span>
                     </div>
                 </div>
+
                 <h1 class="text-center">Enregistrement</h1>
                 <form th:action="@{/registration}" th:object="${user}" method="post">
 
@@ -19,6 +22,7 @@
                        th:if="${#fields.hasGlobalErrors()}"
                        th:each="error : ${#fields.errors('global')}"
                        th:text="${error}">Erreur de validation</p>
+
                     <div class="form-group"
                          th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
                         <label for="email" class="control-label">E-mail</label>
@@ -38,6 +42,16 @@
                                th:field="*{password}"/>
                         <p class="error-message"
                            th:each="error : ${#fields.errors('password')}"
+                           th:text="${error}">Erreur de validation</p>
+                    </div>
+                    <div class="form-group"
+                         th:classappend="${#fields.hasErrors('bankCardNumber')}? 'has-error':''">
+                        <label for="bankCardNumber" class="control-label">Numéro de carte de crédit</label>
+                        <input id="bankCardNumber"
+                               class="form-control"
+                               th:field="*{bankCardNumber}"/>
+                        <p class="error-message"
+                           th:each="error : ${#fields.errors('bankCardNumber')}"
                            th:text="${error}">Erreur de validation</p>
                     </div>
                     <div class="form-group">
