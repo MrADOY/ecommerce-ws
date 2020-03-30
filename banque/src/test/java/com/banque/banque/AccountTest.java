@@ -2,45 +2,18 @@ package com.banque.banque;
 
 
 import com.banque.banque.model.Account;
-import com.banque.banque.model.Transaction;
 import com.banque.banque.repository.AccountRepository;
-import com.banque.banque.repository.TransactionsRepository;
 import com.banque.banque.service.AccountServiceImpl;
-import com.banque.banque.service.BankServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import java.util.ArrayList;
-
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
-import static org.hamcrest.CoreMatchers.is;
-import com.banque.banque.model.Account;
-import com.banque.banque.model.Transaction;
-import com.banque.banque.repository.AccountRepository;
-import com.banque.banque.repository.TransactionsRepository;
-import com.banque.banque.service.AccountServiceImpl;
-import com.banque.banque.service.BankServiceImpl;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
-
-import java.util.ArrayList;
-
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 import static org.hamcrest.CoreMatchers.is;
 
-import static org.hamcrest.CoreMatchers.is;
 @RunWith(MockitoJUnitRunner.class)
 public class AccountTest {
 
