@@ -5,6 +5,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Getter
@@ -18,9 +21,17 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String firstName;
+    @NotBlank
+    @Size(max = 40)
+
+    private String lastName;
+    @NotBlank
+    @Size(max = 40)
+
+    @Email
     private String email;
     private String password;
-    private String bankCardNumber;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(

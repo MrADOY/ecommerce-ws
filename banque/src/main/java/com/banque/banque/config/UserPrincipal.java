@@ -15,8 +15,10 @@ public class UserPrincipal implements UserDetails {
     private String email;
     private String password;
 
-    public UserPrincipal(int id, String email, String password) {
+    public UserPrincipal(int id, String firstName, String lastName, String email, String password) {
         this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
     }
@@ -24,10 +26,13 @@ public class UserPrincipal implements UserDetails {
     public static UserPrincipal create(User user) {
         return new UserPrincipal(
                 user.getId(),
+                user.getFirstName(),
+                user.getLastName(),
                 user.getEmail(),
                 user.getPassword()
         );
     }
+
     @Override
     public String getUsername() {
         return email;
