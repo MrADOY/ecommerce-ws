@@ -47,6 +47,7 @@
                             </thead>
                             <tbody>
                             <tr th:each="transac : ${transactions}">
+                                <td th:text="${#dates.format(transac.date, 'dd/MM/yyyy HH:mm:ss')}"></td>
                                 <td th:text="${transac.id}"></td>
                                 <td><span class="text-danger" th:if="${transac.amount &lt; 0}" th:text="${transac.amount + ' €'}"></span></td>
                                 <td><span class="text-success" th:if="${transac.amount &gt;= 0}" th:text="${transac.amount + ' €'}"></span></td>
