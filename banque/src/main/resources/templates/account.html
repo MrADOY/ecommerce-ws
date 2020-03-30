@@ -53,14 +53,14 @@
                                 <td><span class="text-success" th:if="${transac.amount &gt;= 0}" th:text="${transac.amount + ' €'}"></span></td>
                             </tr>
                             <tr>
-                                <td class="td-total">
+                                <td class="td-total text-center" colspan="2">
                                     Total
                                 </td>
                                 <td class="td-price text-danger">
-                                    <span th:text="${debits}"></span> <small>€</small>
+                                    <div th:if="${debits}"><span th:text="${debits}"></span> <small>€</small></div>
                                 </td>
                                 <td class="td-price text-success">
-                                    <span th:text="${credits}"></span> <small>€</small>
+                                    <div th:if="${credits}"><span th:text="${credits}"></span> <small>€</small></div>
                                 </td>
                                 <td></td>
                             </tr>
