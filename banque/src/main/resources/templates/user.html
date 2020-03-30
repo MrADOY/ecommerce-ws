@@ -17,11 +17,12 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title" th:text="${user.email}"></h4>
-                        <h5 class="card-category text-gray" th:text="${user.account.cardNumber}"></h5>
+                        <h4 class="card-title" th:text="${user.lastName + ' ' + user.firstName}"></h4>
+                        <h5 class="card-category text-gray" th:text="${user.email}"></h5>
+                        <h6 class="card-category text-info" th:text="${'N° de carte bancaire : ' + user.account.cardNumber}"></h6>
                     </div>
                     <div class="card-footer justify-content-center">
-                        <a th:href="@{/logout}" class="btn btn-info btn-fab btn-fab-mini btn-round">
+                        <a th:href="@{/logout}" class="btn btn-danger btn-fab btn-fab-mini btn-round">
                             <i class="material-icons">close</i>
                         </a>
                     </div>
