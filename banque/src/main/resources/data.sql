@@ -12,13 +12,13 @@ UPDATE user_bank SET account_id = 1 WHERE id = 1;
 UPDATE user_bank SET account_id = 2 WHERE id = 2;
 UPDATE user_bank SET account_id = 3 WHERE id = 3;
 
-INSERT INTO `transactions` (`id`, `amount`, `account_id`) VALUES
-(1,	353, 1),
-(2,	53.82, 1),
-(3,	-34.00, 1),
-(4,	-353.42, 2),
-(5,	3.42, 2),
-(6,	-53.42, 2),
-(7,	44, 3),
-(8,	311, 3),
-(9,	-4.53, 3);
+INSERT INTO `transactions` (`id`, `amount`, `date`, `account_id`) VALUES
+(1,	353, NOW(), 1),
+(2,	53.82, NOW(), 1),
+(3,	-34.00, NOW(), 1),
+(4,	-353.42, NOW(), 2),
+(5,	3.42, NOW(), 2),
+(6,	-53.42, NOW(), 2),
+(7,	44, NOW(), 3),
+(8,	311, NOW(), 3),
+(9,	-4.53, NOW(), 3);
