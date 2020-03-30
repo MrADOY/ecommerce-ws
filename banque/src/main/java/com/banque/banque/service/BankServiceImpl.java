@@ -47,4 +47,20 @@ public class BankServiceImpl implements BankService{
         accountRepository.save(accountFound);
         return true;
     }
+
+    public AccountRepository getAccountRepository() {
+        return accountRepository;
+    }
+
+    public void setAccountRepository(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
+
+    public TransactionsRepository getTransactionsRepository() {
+        return transactionsRepository;
+    }
+
+    public void setTransactionsRepository(TransactionsRepository transactionsRepository) {
+        this.transactionsRepository = transactionsRepository;
+    }
 }

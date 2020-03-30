@@ -5,7 +5,6 @@ import com.banque.banque.model.Role;
 import com.banque.banque.model.User;
 import com.banque.banque.model.Account;
 import com.banque.banque.repository.AccountRepository;
-import com.banque.banque.service.AccountService;
 import com.banque.banque.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,7 +15,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.Null;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -68,6 +66,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             three = (int)(Math.random() * (9999 - 1000 + 1) + 1000);
             four = (int)(Math.random() * (9999 - 1000 + 1) + 1000);
             cardNumber = "" + one + "-" + two + "-" + three + "-" + four;
+            existing = accountService.findByCardNumber(cardNumber);
         }
 
         account.setCardNumber(cardNumber);
@@ -96,5 +95,37 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return roles.stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName()))
                 .collect(Collectors.toList());
+    }
+
+    public UserRepository getUserRepository() {
+        return userRepository;
+    }
+
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public AccountRepository getAccountRepository() {
+        return accountRepository;
+    }
+
+    public void setAccountRepository(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
+
+    public AccountService getAccountService() {
+        return accountService;
+    }
+
+    public void setAccountService(AccountService accountService) {
+        this.accountService = accountService;
+    }
+
+    public BCryptPasswordEncoder getPasswordEncoder() {
+        return passwordEncoder;
+    }
+
+    public void setPasswordEncoder(BCryptPasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
     }
 }

@@ -15,6 +15,7 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 @Table(name = "UserBank")
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;

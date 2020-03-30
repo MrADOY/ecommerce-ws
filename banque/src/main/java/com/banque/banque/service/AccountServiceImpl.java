@@ -14,4 +14,12 @@ public class AccountServiceImpl implements AccountService {
     public Account findByCardNumber(String number){
         return accountRepository.findByCardNumber(number);
     }
+
+    public AccountRepository getAccountRepository() {
+        return accountRepository;
+    }
+
+    public void setAccountRepository(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
 }
