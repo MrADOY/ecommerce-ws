@@ -43,7 +43,7 @@ public class BankServiceImpl implements BankService{
         transactionsRepository.save(transaction);
 
         accountFound.getTransactions().add(transaction);
-        accountFound.setBalance(accountFound.getBalance() - amount);
+        accountFound.setBalance(accountFound.getBalance() + amount);
         accountRepository.save(accountFound);
         return true;
     }
