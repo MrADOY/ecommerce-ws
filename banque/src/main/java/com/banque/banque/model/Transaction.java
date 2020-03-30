@@ -1,8 +1,10 @@
 package com.banque.banque.model;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -16,6 +18,10 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private double amount;
+
+    @CreationTimestamp
+    private Date date;
+
     @ManyToOne
     private Account account;
 }
