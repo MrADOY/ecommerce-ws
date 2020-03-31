@@ -2,26 +2,19 @@ package fr.commerce.ecommerce.rest;
 
 
 import fr.commerce.ecommerce.rest.model.CreateProductOdt;
-import org.infinispan.factories.annotations.Inject;
+import fr.commerce.ecommerce.rest.model.Product;
+import fr.commerce.ecommerce.rest.model.User;
 
 import javax.annotation.Resource;
-import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.*;
-import javax.transaction.NotSupportedException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -91,4 +84,19 @@ public class ProductsController {
         return Response.ok().build();
     }
 
+    public EntityManager getEm() {
+        return em;
+    }
+
+    public void setEm(EntityManager em) {
+        this.em = em;
+    }
+
+    public UserTransaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(UserTransaction transaction) {
+        this.transaction = transaction;
+    }
 }

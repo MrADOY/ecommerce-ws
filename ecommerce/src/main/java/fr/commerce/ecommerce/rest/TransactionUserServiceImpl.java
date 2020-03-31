@@ -1,6 +1,7 @@
 package fr.commerce.ecommerce.rest;
 
 import com.raps.code.generate.ws.*;
+import fr.commerce.ecommerce.rest.model.User;
 
 import javax.jws.WebService;
 import javax.persistence.EntityManager;

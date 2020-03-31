@@ -1,4 +1,4 @@
-package fr.commerce.ecommerce.rest;
+package fr.commerce.ecommerce.rest.model;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;

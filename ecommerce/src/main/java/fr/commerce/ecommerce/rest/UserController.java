@@ -3,6 +3,7 @@ package fr.commerce.ecommerce.rest;
 import fr.commerce.ecommerce.rest.model.ConnexionUserOdt;
 import fr.commerce.ecommerce.rest.model.ConnexionUserResponseOdt;
 import fr.commerce.ecommerce.rest.model.RegisterUserOdt;
+import fr.commerce.ecommerce.rest.model.User;
 
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;

@@ -7,8 +7,8 @@
     <persistence-unit name="MyPU">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:jboss/datasources/EcommerceDS</jta-data-source>
-        <class>fr.commerce.ecommerce.rest.Product</class>
-        <class>fr.commerce.ecommerce.rest.User</class>
+        <class>fr.commerce.ecommerce.rest.model.Product</class>
+        <class>fr.commerce.ecommerce.rest.model.User</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
