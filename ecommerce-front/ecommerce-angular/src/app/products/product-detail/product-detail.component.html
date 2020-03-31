@@ -7,6 +7,8 @@
     <img src="{{product?.urlPictures}}" alt="{{product?.name}}" class="shadow-lg rounded ">
   </div>
   <p class="lead pt-3">Ce produit appartient à {{user?.name}} {{user?.firstname}}</p>
+  <p class="lead pt-3">Prix {{product?.price}} €</p>
+
   <button *ngIf="showButton" class="alert alert-success" (click)="order(userService.user.id, product?.ownerId, product?.price, product?.id)">J'achète</button>
   <div *ngIf="showSpinner" class="spinner-border" role="status">
     <span class="sr-only">Chargement...</span>

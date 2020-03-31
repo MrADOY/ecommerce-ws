@@ -22,13 +22,14 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String firstName;
-    @NotBlank
-    @Size(max = 40)
 
-    private String lastName;
     @NotBlank
     @Size(max = 40)
+    private String firstName;
+
+    @NotBlank
+    @Size(max = 40)
+    private String lastName;
 
     @Email
     private String email;

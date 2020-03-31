@@ -11,8 +11,8 @@ public interface AccountRepository extends CrudRepository<Account, Integer> {
     Account findByCardNumber(String cardNumber);
 
     @Query("SELECT SUM(amount) FROM Transaction t WHERE amount >= 0 AND t.account =:account ")
-    double getTotalTransactionsPositivesByAccount(@Param("account") Account account);
+    Double getTotalTransactionsPositivesByAccount(@Param("account") Account account);
 
     @Query("SELECT SUM(amount) FROM Transaction t WHERE amount < 0 AND t.account =:account ")
-    double getTotalTransactionsNegativesByAccount(@Param("account") Account account);
+    Double getTotalTransactionsNegativesByAccount(@Param("account") Account account);
 }
