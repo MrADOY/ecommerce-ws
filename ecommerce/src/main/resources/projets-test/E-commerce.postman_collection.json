@@ -7,11 +7,8 @@
 	"item": [
 		{
 			"name": "create-user",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -25,7 +22,7 @@
 					"raw": "{\n\t\"email\" : \"test@postman.com\",\n    \"password\" : \"1234\",\n    \"bankCardNumber\" : \"1111-2222-3333-4524\",\n    \"name\" : \"Post\",\n    \"firstname\": \"Man\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/user/register/",
+					"raw": "http://localhost:8080/api/user/register",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -34,8 +31,7 @@
 					"path": [
 						"api",
 						"user",
-						"register",
-						""
+						"register"
 					]
 				}
 			},
