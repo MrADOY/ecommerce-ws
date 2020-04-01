@@ -1,0 +1,21 @@
+<div class="container">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label >Nom du produit</label>
+      <input type="text" class="form-control" formControlName="name">
+    </div>
+    <div class="form-group">
+      <label >Description</label>
+      <input type="text" class="form-control" formControlName="description">
+    </div>
+    <div class="form-group">
+      <label >Url image</label>
+      <input type="text" class="form-control" formControlName="urlPictures">
+    </div>
+    <div class="form-group">
+      <label >Prix</label>
+      <input type="number" class="form-control" formControlName="price">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">Publier le produit</button>
+  </form>
+</div>

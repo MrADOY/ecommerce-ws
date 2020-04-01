@@ -78,6 +78,8 @@ public class ProductsController {
                 .description(productToCreate.getDescription())
                 .ownerId(getUserWithId(productToCreate.getOwnerId()).getId())
                 .price(productToCreate.getPrice())
+                .urlPictures(productToCreate.getUrlPictures())
+                .available(true)
                 .build();
         this.em.persist(p);
         this.transaction.commit();

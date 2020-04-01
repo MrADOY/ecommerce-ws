@@ -1,3 +1,5 @@
+<button routerLink="/create-product" type="button" class="btn btn-dark">Ajouter produit</button>
+
 <div style="display: flex; flex-wrap: wrap">
   <div *ngFor="let p of products" class="card">
     <div class="image-top" [ngStyle]="{'background-image' : 'url(' + p.urlPictures + ')'}"></div>

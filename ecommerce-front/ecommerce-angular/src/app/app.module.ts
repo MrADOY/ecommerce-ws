@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConnexionComponent } from './user/connexion/connexion.component';
 import { NgxSoapModule } from 'ngx-soap';
+import { ProductFormComponent } from './products/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgxSoapModule } from 'ngx-soap';
     HeaderComponent,
     FooterComponent,
     RegisterComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
