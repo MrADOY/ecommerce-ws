@@ -154,7 +154,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.19</version>
+      <version>8.0.28</version>
     </dependency>
     <!-- Java API for XML Web Services (JAX-WS), Java 11+ support -->
     <dependency>
